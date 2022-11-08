@@ -9,7 +9,10 @@ const SliderPerson = () => {
         centerPadding: "0px",
         speed: 500,
         slidesToScroll: 1,
-        slidesToShow: 4,
+        slidesToShow: 1,
+        variableWidth: true,
+        swipeToSlide: true,
+        infinite: true,
         prevArrow: <PrevArrow />,
         nextArrow: <NextArrow />,
     };

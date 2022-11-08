@@ -6,15 +6,11 @@ import { styled } from "@mui/system";
 import { Text } from "../../../../../components";
 
 const WrapperVideoPlayer = styled(Grid)(({ theme }) => ({
-    height: 500,
+    height: 700,
 }));
 
 const VideoCard = styled(Grid)(({ theme }) => ({
-    height: 208,
-    border: "0.5px solid #000000",
     cursor: "pointer",
-    overflow: "hidden",
-    paddingBottom: 5,
 }));
 
 const VideoPlayers = () => {
@@ -29,16 +25,17 @@ const VideoPlayers = () => {
         },
         {
             id: 2,
-            url: "https://youtu.be/EaG60nAEtcE",
+            url: "https://youtu.be/96wAb6dx2L8?list=PLcjPlJ1X9EHa0SPHppjp8sVdN21e8Ifqa",
             type: "card",
-            description: "asdasdasdas asdasdasd",
+            description:
+                'Инвестиции в Крым. Интервью с Камальдиновым Рамилем Салимджановичем, директором ТД "РегионСнаб".',
             img: "/img/Rectangle71.png",
         },
         {
             id: 3,
-            url: "https://youtu.be/qRTvfpzo-Mg",
+            url: "https://youtu.be/vhQc26FTsYE",
             type: "card",
-            description: "asdasdasdas asdasdasd",
+            description: "Еженедельный бюллетень №38 от 20.05.2022 г.",
             img: "/img/Rectangle26.png",
         },
     ]);
@@ -83,10 +80,23 @@ const VideoPlayers = () => {
                             >
                                 <img
                                     src={item.img}
-                                    style={{ width: "100%", height: 130 }}
+                                    style={{
+                                        width: "100%",
+                                        height: 200,
+                                        objectFit: "cover",
+                                    }}
                                     alt=""
                                 />
-                                <div style={{ padding: 5 }}>
+                                <div
+                                    style={{
+                                        padding: 5,
+                                        border: "0.5px solid #000000",
+                                        borderTop: "none",
+                                        height: "max-content",
+                                        marginTop: "-5px",
+                                        overflow: "hidden",
+                                    }}
+                                >
                                     <Text>{item.description}</Text>
                                 </div>
                             </VideoCard>

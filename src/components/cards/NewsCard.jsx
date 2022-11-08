@@ -4,42 +4,74 @@ import { styled } from "@mui/system";
 import { Text } from "..";
 
 const Card = styled(Box)({
-    width: 250,
+    border: "1px solid #3A586E",
+    cursor: "pointer",
+    paddingTop: 26,
+    paddingBottom: 26,
+    paddingLeft: 20,
+    paddingRight: 20,
     display: "flex",
     flexDirection: "column",
-    marginRight: 57,
+    justifyContent: "space-between",
 });
 
 const Img = styled("img")({
-    width: "100%",
-    height: 300,
+    width: "50%",
+    height: "100%",
     objectFit: "cover",
 });
 
-const NewsCard = ({ img, full_name, description }) => {
+const BoxNews = styled(Box)(({ theme }) => ({
+    display: "flex",
+    justifyContent: "space-between",
+    height: "100%",
+    marginTop: 7,
+    height: 295,
+}));
+
+const LineVertical = styled(Box)(({ theme }) => ({
+    height: "100%",
+    width: 1,
+    background: "#3A586E",
+    marginLeft: 20,
+    marginRight: 20,
+}));
+
+const Description = styled("div")(({ theme }) => ({
+    width: "50%",
+    display: "flex",
+    overflow: "hidden",
+}));
+
+const NewsCard = ({ img, description, title, date, id }) => {
     return (
         <Card>
-            <Img src={img} />
             <Text
                 sx={{
-                    fontSize: 18,
+                    fontSize: 24,
                     fontWeight: 500,
-                    textAlign: "center",
-                    mt: 1.4,
+                    color: "#3A586E",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
                 }}
             >
-                {full_name}
+                {title}
             </Text>
-            <Text
-                sx={{
-                    fontSize: 14,
-                    fontWeight: 400,
-                    textAlign: "center",
-                    mt: 1.1,
-                }}
-            >
-                {description}
-            </Text>
+            <Text sx={{ color: "#3A586E" }}>4 ноября 2022 года</Text>
+
+            <BoxNews>
+                <Img src={img} />
+                <LineVertical />
+
+                <Description>
+                    <Text
+                        sx={{ fontSize: 18, fontWeight: 400, color: "#3A586E" }}
+                    >
+                        {description}
+                    </Text>
+                </Description>
+            </BoxNews>
         </Card>
     );
 };

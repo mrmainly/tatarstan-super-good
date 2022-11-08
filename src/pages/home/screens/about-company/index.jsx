@@ -11,7 +11,7 @@ const ContainerAbout = styled(Container)({
 
 const AboutCompany = () => {
     return (
-        <ContainerAbout>
+        <ContainerAbout maxWidth="xl">
             <AboutDescription />
             <SliderPerson />
             <VideoPlayers />
