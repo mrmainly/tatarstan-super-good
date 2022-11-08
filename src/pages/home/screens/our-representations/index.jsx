@@ -15,6 +15,12 @@ const Menu = styled(Box)(({ theme }) => ({
     flexDirection: "column",
 }));
 
+const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
+    "&:hover #item": {
+        fontSize: 26,
+    },
+}));
+
 const OurRepresentations = () => {
     const menuList = [
         {
@@ -58,16 +64,18 @@ const OurRepresentations = () => {
             <MapWrapper>
                 <Menu>
                     {menuList.map((item, index) => (
-                        <MenuItem key={index}>
+                        <CustomMenuItem key={index}>
                             <Text
+                                id="item"
                                 style={{
                                     color: "rgba(58, 88, 110, 0.7)",
                                     marginTop: 10,
+                                    transition: "all 1s ease",
                                 }}
                             >
                                 {item.label}
                             </Text>
-                        </MenuItem>
+                        </CustomMenuItem>
                     ))}
                 </Menu>
                 <img src="/img/Group11.png" alt="" style={{ height: 700 }} />
