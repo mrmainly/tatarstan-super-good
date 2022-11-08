@@ -13,6 +13,10 @@ const Card = styled(Box)({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    transition: "all 1s ease",
+    "&:hover": {
+        boxShadow: "0px 0px 20px rgba(0,0,0,0.8)",
+    },
 });
 
 const Img = styled("img")(({ theme }) => ({

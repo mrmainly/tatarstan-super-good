@@ -1,15 +1,12 @@
-import { Outlet } from "react-router-dom";
 import { Box } from "@mui/system";
 
 import { Header, Footer } from "../components";
 
-const MainLayout = () => {
+const MainLayout = ({ children }) => {
     return (
         <Box sx={{ overflow: "hidden" }}>
             <Header />
-            <Box>
-                <Outlet />
-            </Box>
+            <Box>{children}</Box>
             <Footer />
         </Box>
     );

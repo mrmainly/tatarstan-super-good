@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { AppBar, Container, Box, MenuItem, Drawer } from "@mui/material";
 import { styled } from "@mui/system";
-import { Link } from "react-router-dom";
 import { Sling as Hamburger } from "hamburger-react";
+import { HashLink } from "react-router-hash-link";
 
 import { Text } from "..";
 
 const NavbarWrapper = styled(AppBar)(({ theme }) => ({
     background: "#FFFFFF",
-
     [theme.breakpoints.down("md")]: {
         position: "fixed",
         zIndex: 10,
@@ -50,7 +49,7 @@ const MenuListMobile = styled(Box)(({ theme }) => ({
     },
 }));
 
-const Item = styled(Link)(({ theme }) => ({
+const Item = styled(HashLink)(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -80,27 +79,27 @@ const Header = () => {
     const items = [
         {
             label: "О НАС",
-            path: "/",
+            path: "#about",
         },
         {
             label: "ПРЕДСТАВИТЕЛЬСТВА",
-            path: "/",
+            path: "#our-representations",
         },
         {
             label: "НОВОСТИ",
-            path: "/",
+            path: "#news",
         },
         {
             label: "ПРОДУКЦИИ",
-            path: "/",
+            path: "#products",
         },
         {
             label: "ПАРТНЕРЫ",
-            path: "/",
+            path: "#partners",
         },
         {
             label: "ЗАЯВКА",
-            path: "/",
+            path: "#request",
         },
     ];
 
@@ -128,7 +127,7 @@ const Header = () => {
                         <Hamburger color="black" toggled={open} />
                     </ButtonShow>
                     {items.map((item, index) => (
-                        <Item to={item.path} key={index}>
+                        <Item to={item.path} key={index} onClick={handleOpen}>
                             <MenuItem>
                                 <Text
                                     sx={{

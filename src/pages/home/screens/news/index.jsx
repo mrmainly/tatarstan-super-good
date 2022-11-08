@@ -1,8 +1,12 @@
 import { Container, Grid, Pagination } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import { Title, Line, NewsCard } from "../../../../components";
+import ROUTES from "../../../../routes";
 
 const News = () => {
+    const navigate = useNavigate();
+
     const newsList = [
         {
             img: "/img/Rectangle68.png",
@@ -24,6 +28,7 @@ const News = () => {
 
     return (
         <Container
+            id="news"
             maxWidth="xl"
             style={{
                 display: "flex",
@@ -36,7 +41,16 @@ const News = () => {
             <Title>НОВОСТНОЙ БЛОГ</Title>
             <Grid container spacing={2}>
                 {newsList.map((item, index) => (
-                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6} key={index}>
+                    <Grid
+                        item
+                        xs={12}
+                        sm={12}
+                        md={6}
+                        lg={6}
+                        xl={6}
+                        key={index}
+                        onClick={() => navigate(ROUTES.NEWS_DETAIL)}
+                    >
                         <NewsCard {...item} />
                     </Grid>
                 ))}

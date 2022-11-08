@@ -11,11 +11,13 @@ const ContainerAbout = styled(Container)({
 
 const AboutCompany = () => {
     return (
-        <ContainerAbout maxWidth="xl">
-            <AboutDescription />
-            <SliderPerson />
-            <VideoPlayers />
-        </ContainerAbout>
+        <div id="about">
+            <ContainerAbout maxWidth="xl">
+                <AboutDescription />
+                <SliderPerson />
+                <VideoPlayers />
+            </ContainerAbout>
+        </div>
     );
 };
 

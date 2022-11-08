@@ -1,5 +1,6 @@
-import { Box, MenuItem, Link } from "@mui/material";
+import { Box, MenuItem } from "@mui/material";
 import { styled } from "@mui/system";
+import { HashLink } from "react-router-hash-link";
 
 import { Text } from "..";
 
@@ -9,9 +10,12 @@ const MenuList = styled(Box)(({ theme }) => ({
     alignItems: "center",
     marginTop: 23,
     marginBottom: 23,
+    [theme.breakpoints.down("sm")]: {
+        flexDirection: "column",
+    },
 }));
 
-const Item = styled(Link)(({ theme }) => ({
+const Item = styled(HashLink)(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -22,26 +26,30 @@ const Item = styled(Link)(({ theme }) => ({
 }));
 
 const Footer = () => {
-    const menuList = [
+    const items = [
         {
             label: "О НАС",
-            anchor: "",
+            path: "#about",
         },
         {
             label: "ПРЕДСТАВИТЕЛЬСТВА",
-            anchor: "",
+            path: "#our-representations",
         },
         {
             label: "НОВОСТИ",
-            anchor: "",
+            path: "#news",
         },
         {
             label: "ПРОДУКЦИИ",
-            anchor: "",
+            path: "#products",
+        },
+        {
+            label: "ПАРТНЕРЫ",
+            path: "#partners",
         },
         {
             label: "ЗАЯВКА",
-            anchor: "",
+            path: "#request",
         },
     ];
     return (
@@ -64,7 +72,7 @@ const Footer = () => {
                 }}
             ></Box>
             <MenuList>
-                {menuList.map((item, index) => (
+                {items.map((item, index) => (
                     <Item to={item.path} key={index}>
                         <MenuItem>
                             <Text

@@ -54,6 +54,7 @@ const OurPartners = () => {
     ];
     return (
         <Container
+            id="partners"
             maxWidth="xl"
             style={{
                 display: "flex",

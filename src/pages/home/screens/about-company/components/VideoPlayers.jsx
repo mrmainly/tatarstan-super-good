@@ -20,7 +20,7 @@ const VideoPlayers = () => {
     const [videoController, setVideoController] = useState([
         {
             id: 1,
-            url: "https://youtu.be/5rnE7V4D7U4",
+            url: "https://youtu.be/wAdZ5NAsC4Y",
             type: "video",
             description:
                 "asdasdasdas asdasdasd asdasdasd asd asd asd asdasdasda asdas asdasdasd asdasd asd asdasd sdadasd",
@@ -28,18 +28,18 @@ const VideoPlayers = () => {
         },
         {
             id: 2,
-            url: "https://youtu.be/96wAb6dx2L8?list=PLcjPlJ1X9EHa0SPHppjp8sVdN21e8Ifqa",
+            url: "https://youtu.be/bOV8_P9f3xY",
             type: "card",
             description:
                 'Инвестиции в Крым. Интервью с Камальдиновым Рамилем Салимджановичем, директором ТД "РегионСнаб".',
-            img: "/img/Rectangle71.png",
+            img: "/img/image212327.svg",
         },
         {
             id: 3,
-            url: "https://youtu.be/vhQc26FTsYE",
+            url: "https://youtu.be/0OYxG6KcZvk",
             type: "card",
             description: "Еженедельный бюллетень №38 от 20.05.2022 г.",
-            img: "/img/Rectangle26.png",
+            img: "/img/image212328.svg",
         },
     ]);
 
@@ -62,7 +62,7 @@ const VideoPlayers = () => {
                                 key={index}
                                 url={item.url}
                                 controls={true}
-                                playing={true}
+                                playing={false}
                                 width="100%"
                                 height="100%"
                             />

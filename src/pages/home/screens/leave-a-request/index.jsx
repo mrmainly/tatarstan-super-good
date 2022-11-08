@@ -48,6 +48,7 @@ const GridItem = styled(Grid)(({ theme }) => ({
 const LeaveRequest = () => {
     return (
         <Container
+            id="request"
             maxWidth="xl"
             style={{
                 marginTop: 100,
