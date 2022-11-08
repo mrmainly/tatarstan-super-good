@@ -1,15 +1,16 @@
 import { Box, MenuItem } from "@mui/material";
 import { styled } from "@mui/system";
 import { HashLink } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
 
 import { Text } from "..";
+import ROUTES from "../../routes";
 
 const MenuList = styled(Box)(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginTop: 23,
-    marginBottom: 23,
     [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
     },
@@ -26,6 +27,8 @@ const Item = styled(HashLink)(({ theme }) => ({
 }));
 
 const Footer = () => {
+    const location = useLocation();
+
     const items = [
         {
             label: "О НАС",
@@ -71,23 +74,25 @@ const Footer = () => {
                     marginTop: 0.5,
                 }}
             ></Box>
-            <MenuList>
-                {items.map((item, index) => (
-                    <Item to={item.path} key={index}>
-                        <MenuItem>
-                            <Text
-                                style={{
-                                    fontStyle: "normal",
-                                    fontWeight: 600,
-                                    fontSize: 14,
-                                }}
-                            >
-                                {item.label}
-                            </Text>
-                        </MenuItem>
-                    </Item>
-                ))}
-            </MenuList>
+            {location.pathname === ROUTES.HOME && (
+                <MenuList>
+                    {items.map((item, index) => (
+                        <Item to={item.path} key={index}>
+                            <MenuItem>
+                                <Text
+                                    style={{
+                                        fontStyle: "normal",
+                                        fontWeight: 600,
+                                        fontSize: 14,
+                                    }}
+                                >
+                                    {item.label}
+                                </Text>
+                            </MenuItem>
+                        </Item>
+                    ))}
+                </MenuList>
+            )}
             <Text
                 style={{
                     fontWeight: "600",
@@ -95,6 +100,7 @@ const Footer = () => {
                     color: "black",
                     fontStyle: "normal",
                     textAlign: "center",
+                    marginTop: 23,
                 }}
             >
                 ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ ТОРГОВЫЙ ДОМ
