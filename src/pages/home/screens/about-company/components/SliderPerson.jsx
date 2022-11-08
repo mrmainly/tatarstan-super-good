@@ -52,9 +52,8 @@ const SliderPerson = () => {
         <Box sx={{ mt: 10 }}>
             <Slider {...settings}>
                 {personList?.map((item, index) => (
-                    <Box style={{ background: "red" }}>
+                    <Box style={{ background: "red" }} key={index}>
                         <PersonCard
-                            key={index}
                             img={item.img}
                             full_name={item.full_name}
                             description={item.description}

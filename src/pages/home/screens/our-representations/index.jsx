@@ -78,7 +78,7 @@ const OurRepresentations = () => {
                         </CustomMenuItem>
                     ))}
                 </Menu>
-                <img src="/img/Group11.png" alt="" style={{ height: 700 }} />
+                {/* <img src="/img/Group11.png" alt="" style={{ height: 700 }} /> */}
             </MapWrapper>
         </Container>
     );

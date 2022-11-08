@@ -1,5 +1,15 @@
 import { Container, Box, TextField, Button } from "@mui/material";
+import { styled } from "@mui/system";
+
 import { Line, Title, Text } from "../../../../components";
+
+const EmailTextField = styled(TextField)(({ theme }) => ({
+    marginTop: 20,
+    width: 620,
+    [theme.breakpoints.down("md")]: {
+        width: "100%",
+    },
+}));
 
 const QuestionForm = () => {
     const questionList = [
@@ -56,7 +66,7 @@ const QuestionForm = () => {
                             alignItems: "center",
                             marginTop: 20,
                         }}
-                        ley={index}
+                        key={index}
                     >
                         <img src={item.img} alt="" />
                         <Box
@@ -93,10 +103,7 @@ const QuestionForm = () => {
                 компании
                 <br /> Торговый Дом “РегионСнаб”
             </Text>
-            <TextField
-                label="Электронная почта"
-                style={{ marginTop: 20, width: 620 }}
-            />
+            <EmailTextField label="Электронная почта" />
             <Button
                 style={{
                     background: "#3A586E",

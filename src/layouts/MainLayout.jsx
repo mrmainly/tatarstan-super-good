@@ -5,7 +5,7 @@ import { Header, Footer } from "../components";
 
 const MainLayout = () => {
     return (
-        <Box>
+        <Box sx={{ overflow: "hidden" }}>
             <Header />
             <Box>
                 <Outlet />

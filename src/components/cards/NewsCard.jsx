@@ -15,11 +15,15 @@ const Card = styled(Box)({
     justifyContent: "space-between",
 });
 
-const Img = styled("img")({
+const Img = styled("img")(({ theme }) => ({
     width: "50%",
     height: "100%",
     objectFit: "cover",
-});
+    [theme.breakpoints.down("sm")]: {
+        width: "100%",
+        height: 200,
+    },
+}));
 
 const BoxNews = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -27,6 +31,10 @@ const BoxNews = styled(Box)(({ theme }) => ({
     height: "100%",
     marginTop: 7,
     height: 295,
+    [theme.breakpoints.down("sm")]: {
+        flexDirection: "column",
+        height: "auto",
+    },
 }));
 
 const LineVertical = styled(Box)(({ theme }) => ({
@@ -35,12 +43,23 @@ const LineVertical = styled(Box)(({ theme }) => ({
     background: "#3A586E",
     marginLeft: 20,
     marginRight: 20,
+    [theme.breakpoints.down("sm")]: {
+        height: 1,
+        width: "100%",
+        marginLeft: 0,
+        marginRight: 0,
+        marginTop: 20,
+        marginBottom: 20,
+    },
 }));
 
 const Description = styled("div")(({ theme }) => ({
     width: "50%",
     display: "flex",
     overflow: "hidden",
+    [theme.breakpoints.down("sm")]: {
+        width: "100%",
+    },
 }));
 
 const NewsCard = ({ img, description, title, date, id }) => {

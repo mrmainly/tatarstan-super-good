@@ -1,12 +1,15 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { Text } from "../../../../../components";
 
 const WrapperVideoPlayer = styled(Grid)(({ theme }) => ({
     height: 700,
+    [theme.breakpoints.down("sm")]: {
+        height: 400,
+    },
 }));
 
 const VideoCard = styled(Grid)(({ theme }) => ({
@@ -51,7 +54,7 @@ const VideoPlayers = () => {
 
     return (
         <Grid container spacing={2} style={{ marginTop: 60 }}>
-            <WrapperVideoPlayer item xs={9}>
+            <WrapperVideoPlayer item xs={12} sm={12} md={9} lg={9} xl={9}>
                 {videoController.map((item, index) => {
                     if (item.type === "video") {
                         return (
@@ -67,42 +70,58 @@ const VideoPlayers = () => {
                     }
                 })}
             </WrapperVideoPlayer>
-            <Grid item xs={3} style={{ marginTop: "-10px" }}>
-                {videoController.map((item, index) => {
-                    if (item.type === "card") {
-                        return (
-                            <VideoCard
-                                key={index}
-                                style={{ marginTop: 10 }}
-                                onClick={() => {
-                                    selectVideo(item.id);
-                                }}
-                            >
-                                <img
-                                    src={item.img}
-                                    style={{
-                                        width: "100%",
-                                        height: 200,
-                                        objectFit: "cover",
-                                    }}
-                                    alt=""
-                                />
-                                <div
-                                    style={{
-                                        padding: 5,
-                                        border: "0.5px solid #000000",
-                                        borderTop: "none",
-                                        height: "max-content",
-                                        marginTop: "-5px",
-                                        overflow: "hidden",
+            <Grid
+                item
+                xs={12}
+                sm={12}
+                md={3}
+                lg={3}
+                xl={3}
+                style={{ marginTop: "-10px" }}
+            >
+                <Grid container spacing={2}>
+                    {videoController.map((item, index) => {
+                        if (item.type === "card") {
+                            return (
+                                <VideoCard
+                                    xs={12}
+                                    sm={6}
+                                    md={12}
+                                    lg={12}
+                                    xl={12}
+                                    key={index}
+                                    item
+                                    style={{ marginTop: 10 }}
+                                    onClick={() => {
+                                        selectVideo(item.id);
                                     }}
                                 >
-                                    <Text>{item.description}</Text>
-                                </div>
-                            </VideoCard>
-                        );
-                    }
-                })}
+                                    <img
+                                        src={item.img}
+                                        style={{
+                                            width: "100%",
+                                            height: 200,
+                                            objectFit: "cover",
+                                        }}
+                                        alt=""
+                                    />
+                                    <div
+                                        style={{
+                                            padding: 5,
+                                            border: "0.5px solid #000000",
+                                            borderTop: "none",
+                                            height: "max-content",
+                                            marginTop: "-5px",
+                                            overflow: "hidden",
+                                        }}
+                                    >
+                                        <Text>{item.description}</Text>
+                                    </div>
+                                </VideoCard>
+                            );
+                        }
+                    })}
+                </Grid>
             </Grid>
         </Grid>
     );
