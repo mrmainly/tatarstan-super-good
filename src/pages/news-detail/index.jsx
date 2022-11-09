@@ -22,13 +22,9 @@ const Navigator = styled(Text)(({ theme }) => ({
 
 const Img = styled("img")(({ theme }) => ({
     width: "98%",
-    height: 500,
+    height: "auto",
     objectFit: "cover",
     margin: "0 auto",
-    [theme.breakpoints.down("md")]: {
-        height: "auto",
-    },
-    [theme.breakpoints.down("sm")]: {},
 }));
 
 const NewsDetail = () => {
@@ -58,8 +54,17 @@ const NewsDetail = () => {
 
     return (
         <>
-            <Dialog aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description" open={open} onClose={handleClose}>
-                <img src={img} style={{ width: "100%", height: "auto" }} alt="" />
+            <Dialog
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                open={open}
+                onClose={handleClose}
+            >
+                <img
+                    src={img}
+                    style={{ width: "100%", height: "auto" }}
+                    alt=""
+                />
             </Dialog>
             <Box sx={{ bgcolor: "#059B3D", height: 15, width: "100%" }}></Box>
             <Box
@@ -70,9 +75,13 @@ const NewsDetail = () => {
                     marginTop: 0.5,
                 }}
             ></Box>
-            <Container style={{ minHeight: 800, color: "black", paddingTop: 40 }}>
+            <Container
+                style={{ minHeight: 800, color: "black", paddingTop: 40 }}
+            >
                 <Box style={{ display: "flex" }}>
-                    <Navigator onClick={() => navigate(ROUTES.HOME)}>Главная</Navigator>
+                    <Navigator onClick={() => navigate(ROUTES.HOME)}>
+                        Главная
+                    </Navigator>
                     <Text style={{ color: "#3A586E" }}>/</Text>
                     <Text
                         className="news"
@@ -111,10 +120,12 @@ const NewsDetail = () => {
                     {data.image.map((item, index) => (
                         <Box key={index}>
                             <Img
-                                src={`http://127.0.0.1:8000${item.image}`}
+                                src={`https://tdregionsnab.ru${item.image}`}
                                 alt=""
                                 onClick={() => {
-                                    setImg(`http://127.0.0.1:8000${item.image}`);
+                                    setImg(
+                                        `https://tdregionsnab.ru${item.image}`
+                                    );
                                     setOpen(true);
                                 }}
                             />
@@ -122,7 +133,16 @@ const NewsDetail = () => {
                     ))}
                 </Slider>
 
-                <div style={{ fontSize: 20, color: "#3A586E", marginTop: 20, wordWrap: "break-word", overflow: "hidden" }} dangerouslySetInnerHTML={{ __html: data.full_desc }}></div>
+                <div
+                    style={{
+                        fontSize: 20,
+                        color: "#3A586E",
+                        marginTop: 20,
+                        wordWrap: "break-word",
+                        overflow: "hidden",
+                    }}
+                    dangerouslySetInnerHTML={{ __html: data.full_desc }}
+                ></div>
             </Container>
         </>
     );
