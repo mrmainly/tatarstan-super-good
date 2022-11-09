@@ -1,7 +1,10 @@
-import { Box, Container } from "@mui/material";
+import { useState } from "react";
+import { Box, Container, Dialog } from "@mui/material";
 import { styled } from "@mui/system";
 import Slider from "react-slick";
 import { useNavigate, useLocation } from "react-router-dom";
+import moment from "moment";
+import esLocale from "moment/locale/ru";
 
 import { Text, PrevArrow, NextArrow } from "../../components";
 import ROUTES from "../../routes";
@@ -17,15 +20,27 @@ const Navigator = styled(Text)(({ theme }) => ({
     },
 }));
 
+const Img = styled("img")(({ theme }) => ({
+    width: "98%",
+    height: 500,
+    objectFit: "cover",
+    margin: "0 auto",
+    [theme.breakpoints.down("md")]: {
+        height: "auto",
+    },
+    [theme.breakpoints.down("sm")]: {},
+}));
+
 const NewsDetail = () => {
+    const [img, setImg] = useState("");
+    const [open, setOpen] = useState(false);
+
     const navigate = useNavigate();
     const location = useLocation();
 
     const state = location.state;
 
     const { data } = state;
-
-    console.log(data);
 
     const settings = {
         dots: false,
@@ -36,9 +51,16 @@ const NewsDetail = () => {
         prevArrow: <PrevArrow />,
         nextArrow: <NextArrow />,
     };
-    const list = [{ img: "/img/Frame3556.png" }, { img: "/img/Frame3556.png" }, { img: "/img/Frame3556.png" }];
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <>
+            <Dialog aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description" open={open} onClose={handleClose}>
+                <img src={img} style={{ width: "100%", height: "auto" }} alt="" />
+            </Dialog>
             <Box sx={{ bgcolor: "#059B3D", height: 15, width: "100%" }}></Box>
             <Box
                 sx={{
@@ -83,19 +105,17 @@ const NewsDetail = () => {
                         marginBottom: 22,
                     }}
                 >
-                    4 ноября 2022 года
+                    {moment(data.pub_date).locale("ru").format("d MMMM YYYY")}
                 </Text>
                 <Slider {...settings}>
                     {data.image.map((item, index) => (
                         <Box key={index}>
-                            <img
+                            <Img
                                 src={`http://127.0.0.1:8000${item.image}`}
                                 alt=""
-                                style={{
-                                    width: "98%",
-                                    height: 500,
-                                    objectFit: "cover",
-                                    margin: "0 auto",
+                                onClick={() => {
+                                    setImg(`http://127.0.0.1:8000${item.image}`);
+                                    setOpen(true);
                                 }}
                             />
                         </Box>
