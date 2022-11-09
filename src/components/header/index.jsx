@@ -8,10 +8,8 @@ import { Text } from "..";
 
 const NavbarWrapper = styled(AppBar)(({ theme }) => ({
     background: "#FFFFFF",
-    [theme.breakpoints.down("md")]: {
-        position: "fixed",
-        zIndex: 10,
-    },
+    position: "fixed",
+    zIndex: 10,
 }));
 
 const Navbar = styled(Box)(({ theme }) => ({

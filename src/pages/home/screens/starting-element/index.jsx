@@ -11,9 +11,7 @@ const WrapperContainer = styled(Box)(({ theme }) => ({
     backgroundAttachment: "fixed",
     width: "100%",
     height: 800,
-    [theme.breakpoints.down("md")]: {
-        marginTop: 110,
-    },
+    marginTop: 110,
 }));
 
 const CusText = styled(Text)({
