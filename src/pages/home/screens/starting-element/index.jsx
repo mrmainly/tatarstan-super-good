@@ -12,16 +12,22 @@ const WrapperContainer = styled(Box)(({ theme }) => ({
     width: "100%",
     height: 800,
     marginTop: 110,
+    [theme.breakpoints.down("sm")]: {
+        height: 600,
+    },
 }));
 
-const CusText = styled(Text)({
+const CusText = styled(Text)(({ theme }) => ({
     fontWeight: 500,
     fontSize: 24,
     fontStyle: "normal",
     color: "white",
     textAlign: "center",
     marginBottom: 104,
-});
+    [theme.breakpoints.down("sm")]: {
+        marginBottom: 50,
+    },
+}));
 
 const LogoBox = styled(Box)(({ theme }) => ({
     position: "absolute",
