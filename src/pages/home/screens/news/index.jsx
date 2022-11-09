@@ -18,7 +18,6 @@ const News = () => {
 
     useEffect(() => {
         API.getNews(currentPage).then((res) => {
-            console.log("res", res);
             setData(res.data.results);
             setCountNumber(Math.ceil(res.data.count / 2));
         });
