@@ -13,12 +13,7 @@ const Card = styled("img")(({ theme }) => ({
 }));
 
 const OurProducts = () => {
-    const list = [
-        "/img/Frame3596.svg",
-        "/img/Frame3597.svg",
-        "/img/Frame3598.svg",
-        "/img/Frame3599.svg",
-    ];
+    const list = ["/img/Frame3596.svg", "/img/Frame3597.svg", "/img/Frame3598.svg", "/img/Frame3599.svg"];
 
     return (
         <Container
@@ -33,13 +28,9 @@ const OurProducts = () => {
         >
             <Line />
             <Title>НАШИ ПРОДУКЦИИ</Title>
-            <Grid
-                container
-                spacing={3}
-                style={{ display: "flex", justifyContent: "center" }}
-            >
+            <Grid container spacing={3} style={{ display: "flex", justifyContent: "center" }}>
                 <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-                    <a href="https://drive.google.com/file/d/12R0YSqlQh2I8GYPwvUGlBI5orw5L0e5P/view?usp=sharing">
+                    <a href="https://drive.google.com/file/d/1vCpKQYpas1wD44VVP2qdbvgmqBCDoOuo/view?usp=share_link">
                         <Card src={"/img/Frame2592.svg"} alt="" />
                     </a>
                 </Grid>

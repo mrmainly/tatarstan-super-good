@@ -66,7 +66,7 @@ const Description = styled("div")(({ theme }) => ({
     },
 }));
 
-const NewsCard = ({ img, description, title, date, id }) => {
+const NewsCard = ({ prev_image, short_desc, title, date, id, image }) => {
     return (
         <Card>
             <Text
@@ -84,15 +84,11 @@ const NewsCard = ({ img, description, title, date, id }) => {
             <Text sx={{ color: "#3A586E" }}>4 ноября 2022 года</Text>
 
             <BoxNews>
-                <Img src={img} />
+                <Img src={prev_image} />
                 <LineVertical />
 
                 <Description>
-                    <Text
-                        sx={{ fontSize: 18, fontWeight: 400, color: "#3A586E" }}
-                    >
-                        {description}
-                    </Text>
+                    <Text sx={{ fontSize: 18, fontWeight: 400, color: "#3A586E" }}>{short_desc}</Text>
                 </Description>
             </BoxNews>
         </Card>

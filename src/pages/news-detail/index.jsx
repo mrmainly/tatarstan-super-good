@@ -1,7 +1,7 @@
 import { Box, Container } from "@mui/material";
 import { styled } from "@mui/system";
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { Text, PrevArrow, NextArrow } from "../../components";
 import ROUTES from "../../routes";
@@ -19,6 +19,13 @@ const Navigator = styled(Text)(({ theme }) => ({
 
 const NewsDetail = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const state = location.state;
+
+    const { data } = state;
+
+    console.log(data);
 
     const settings = {
         dots: false,
@@ -29,11 +36,7 @@ const NewsDetail = () => {
         prevArrow: <PrevArrow />,
         nextArrow: <NextArrow />,
     };
-    const list = [
-        { img: "/img/Frame3556.png" },
-        { img: "/img/Frame3556.png" },
-        { img: "/img/Frame3556.png" },
-    ];
+    const list = [{ img: "/img/Frame3556.png" }, { img: "/img/Frame3556.png" }, { img: "/img/Frame3556.png" }];
     return (
         <>
             <Box sx={{ bgcolor: "#059B3D", height: 15, width: "100%" }}></Box>
@@ -45,13 +48,9 @@ const NewsDetail = () => {
                     marginTop: 0.5,
                 }}
             ></Box>
-            <Container
-                style={{ minHeight: 800, color: "black", paddingTop: 40 }}
-            >
+            <Container style={{ minHeight: 800, color: "black", paddingTop: 40 }}>
                 <Box style={{ display: "flex" }}>
-                    <Navigator onClick={() => navigate(ROUTES.HOME)}>
-                        Главная
-                    </Navigator>
+                    <Navigator onClick={() => navigate(ROUTES.HOME)}>Главная</Navigator>
                     <Text style={{ color: "#3A586E" }}>/</Text>
                     <Text
                         className="news"
@@ -74,7 +73,7 @@ const NewsDetail = () => {
                         marginBottom: 5,
                     }}
                 >
-                    ВРУЧЕНИЕ НАГРАД КРЫМЧАНАМ
+                    {data?.title}
                 </Text>
                 <Text
                     style={{
@@ -87,10 +86,10 @@ const NewsDetail = () => {
                     4 ноября 2022 года
                 </Text>
                 <Slider {...settings}>
-                    {list.map((item, index) => (
+                    {data.image.map((item, index) => (
                         <Box key={index}>
                             <img
-                                src={item.img}
+                                src={`http://127.0.0.1:8000${item.image}`}
                                 alt=""
                                 style={{
                                     width: "98%",
@@ -102,19 +101,8 @@ const NewsDetail = () => {
                         </Box>
                     ))}
                 </Slider>
-                <Text style={{ fontSize: 20, color: "#3A586E", marginTop: 20 }}>
-                    {" "}
-                    В преддверии Дня народного единства Глава администрации
-                    города Симферополь Афанасьев Михаил Сергеевич вручил награды
-                    крымчанам, внëсшим значительный вклад и активное участие в
-                    жизни города. Этот праздник связан с важным историческим
-                    периодом нашей страны. Для нас, для всего нашего народа он
-                    имеет сакральный смысл. Именно в периоды народного единства,
-                    нашего единения происходили самые великие победы в нашей
-                    истории. Михаил Афанасьев поздравил награждённых , пожелал
-                    здоровья и мира, а России — скорейшей победы в специальной
-                    военной операции!!!
-                </Text>
+
+                <div style={{ fontSize: 20, color: "#3A586E", marginTop: 20, wordWrap: "break-word", overflow: "hidden" }} dangerouslySetInnerHTML={{ __html: data.full_desc }}></div>
             </Container>
         </>
     );

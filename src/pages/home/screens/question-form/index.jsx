@@ -26,7 +26,7 @@ const QuestionForm = () => {
         {
             img: "/img/message.svg",
             title: "Вконтакте",
-            values: [{ value: "https://vk.com/id713537371" }],
+            values: [{ value: "https://vk.com/club181465754" }, { value: "https://vk.com/id713537371" }],
         },
         {
             img: "/img/message.svg",
@@ -78,7 +78,7 @@ const QuestionForm = () => {
                         >
                             <Text sx={{ color: "#3A586E" }}>{item.title}</Text>
                             {item.values.map((item, index) => (
-                                <>
+                                <div key={index}>
                                     {item.type === "phone" ? (
                                         <a
                                             style={{
@@ -93,52 +93,22 @@ const QuestionForm = () => {
                                         </a>
                                     ) : (
                                         <Text
-                                            key={index}
                                             sx={{
                                                 fontSize: 14,
                                                 textDecoration: "underline",
                                                 cursor: "pointer",
                                             }}
-                                            onClick={() =>
-                                                (window.location.href =
-                                                    item.value)
-                                            }
+                                            onClick={() => (window.location.href = item.value)}
                                         >
                                             {item.value}
                                         </Text>
                                     )}
-                                </>
+                                </div>
                             ))}
                         </Box>
                     </Box>
                 ))}
             </Box>
-            <Text
-                style={{
-                    color: "#3A586E",
-                    marginTop: 48,
-                    textAlign: "center",
-                }}
-            >
-                Оставьте свою электронную почту для информирования Вас о
-                компании
-                <br /> Торговый Дом “РегионСнаб”
-            </Text>
-            <EmailTextField label="Электронная почта" />
-            <Button
-                style={{
-                    background: "#3A586E",
-                    boxShadow:
-                        "0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12",
-                    borderRadius: 4,
-                    color: "white",
-                    width: "max-content",
-                    marginTop: 20,
-                    padding: "10px 15px 10px 15px",
-                }}
-            >
-                Отправить
-            </Button>
         </Container>
     );
 };

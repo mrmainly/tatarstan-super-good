@@ -118,10 +118,7 @@ const Header = () => {
             ></Box>
             <Drawer anchor="right" open={open} onClose={handleOpen}>
                 <MenuListMobile>
-                    <ButtonShow
-                        onClick={handleOpen}
-                        style={{ marginBottom: 20 }}
-                    >
+                    <ButtonShow onClick={handleOpen} style={{ marginBottom: 20 }}>
                         <Hamburger color="black" toggled={open} />
                     </ButtonShow>
                     {items.map((item, index) => (
@@ -143,11 +140,9 @@ const Header = () => {
             <Container maxWidth="xl">
                 <Navbar>
                     <Box>
-                        <img
-                            src="/img/logo.svg"
-                            alt=""
-                            style={{ height: 60 }}
-                        />
+                        <HashLink to="#top">
+                            <img src="/img/logo.svg" alt="" style={{ height: 60, cursor: "pointer" }} />
+                        </HashLink>
                     </Box>
                     <ButtonShow onClick={handleOpen}>
                         <Hamburger color="black" toggled={open} />
