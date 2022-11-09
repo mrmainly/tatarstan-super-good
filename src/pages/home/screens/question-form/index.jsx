@@ -21,12 +21,15 @@ const QuestionForm = () => {
         {
             img: "/img/sms.svg",
             title: "Электронная почта",
-            values: [{ value: "tdregionsnab@list.ru" }],
+            values: [{ value: "tdregionsnab@list.ru", type: "email" }],
         },
         {
             img: "/img/message.svg",
             title: "Вконтакте",
-            values: [{ value: "https://vk.com/club181465754" }, { value: "https://vk.com/id713537371" }],
+            values: [
+                { value: "https://vk.com/club181465754" },
+                { value: "https://vk.com/id713537371" },
+            ],
         },
         {
             img: "/img/message.svg",
@@ -91,6 +94,15 @@ const QuestionForm = () => {
                                         >
                                             {item.value}
                                         </a>
+                                    ) : item.type === "email" ? (
+                                        <Text
+                                            sx={{
+                                                fontSize: 14,
+                                                cursor: "pointer",
+                                            }}
+                                        >
+                                            {item.value}
+                                        </Text>
                                     ) : (
                                         <Text
                                             sx={{
@@ -98,7 +110,10 @@ const QuestionForm = () => {
                                                 textDecoration: "underline",
                                                 cursor: "pointer",
                                             }}
-                                            onClick={() => (window.location.href = item.value)}
+                                            onClick={() =>
+                                                (window.location.href =
+                                                    item.value)
+                                            }
                                         >
                                             {item.value}
                                         </Text>

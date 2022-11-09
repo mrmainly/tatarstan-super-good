@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Title, Line, NewsCard } from "../../../../components";
 import ROUTES from "../../../../routes";
 import API from "../../../../api";
+import esLocale from "moment/locale/ru";
 
 const News = () => {
     const [data, setData] = useState([]);
