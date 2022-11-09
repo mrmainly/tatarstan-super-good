@@ -72,14 +72,23 @@ const OurRepresentations = () => {
         {
             id: 1,
             map: "/img/maps/krim.png",
+            description:
+                "Республика Крым, г. Симферополь, ул. Пролетарская 2/17. тел.: +7 978 (093) 83-00, эл. почта: tdregionsnab@list.ru",
+            full_name: "Камальдинов Рамиль Салимджанович",
         },
         {
             id: 2,
             map: "/img/maps/yakutsk.png",
+            description:
+                "Республика Саха (Якутия). тел.: +7 914 (234) 26-13, эл почта: tdregionsnab@list.ru",
+            full_name: "Михайлов Анатолий Николаевич",
         },
         {
             id: 3,
             map: "/img/maps/kazax.png",
+            description:
+                "Республика Казахстан. г. Астана, улица Чингина Айтматова 46, здание “Адалант” 7 этаж, каб. 34,",
+            full_name: "тел.: +7(701) 233 82-22, Актаев Аманжол",
         },
         {
             id: 4,
@@ -159,19 +168,29 @@ const OurRepresentations = () => {
                 </Grid>
                 <Grid item xl={9} lg={9} md={9} sm={12} xs={12}>
                     {maps.map((item, index) => (
-                        <img
+                        <Box
                             key={index}
-                            src={item.map}
-                            alt=""
                             style={{
-                                width: "100%",
                                 transition: "all 0.5s ease-in",
-                                // height: currentMap === item.id ? "auto" : 0,
-                                // opacity: currentMap === item.id ? 1 : 0,
                                 display:
                                     currentMap === item.id ? "block" : "none",
+                                textAlign: "end",
                             }}
-                        />
+                        >
+                            <img
+                                src={item.map}
+                                alt=""
+                                style={{
+                                    width: "100%",
+                                }}
+                            />
+                            <Text style={{ color: "#FF0000" }}>
+                                {item.description}
+                            </Text>
+                            <Text style={{ color: "#b83909" }}>
+                                {item.full_name}
+                            </Text>
+                        </Box>
                     ))}
                 </Grid>
             </Grid>
