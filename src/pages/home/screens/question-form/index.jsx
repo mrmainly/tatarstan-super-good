@@ -16,22 +16,22 @@ const QuestionForm = () => {
         {
             img: "/img/phone.svg",
             title: "Звонок по России",
-            value: ["+7 978 (093) 83-00"],
+            values: [{ value: "+7 978 (093) 83-00", type: "phone" }],
         },
         {
             img: "/img/sms.svg",
             title: "Электронная почта",
-            value: ["tdregionsnab@list.ru"],
+            values: [{ value: "tdregionsnab@list.ru" }],
         },
         {
             img: "/img/message.svg",
             title: "Вконтакте",
-            value: ["tdregionsnab@list.ru", "https://vk.com/id713537371"],
+            values: [{ value: "https://vk.com/id713537371" }],
         },
         {
             img: "/img/message.svg",
             title: "Телеграм",
-            value: ["https://t.me/+CmyZbX0wKW1hY2Vi"],
+            values: [{ value: "https://t.me/+CmyZbX0wKW1hY2Vi" }],
         },
     ];
 
@@ -77,16 +77,37 @@ const QuestionForm = () => {
                             }}
                         >
                             <Text sx={{ color: "#3A586E" }}>{item.title}</Text>
-                            {item.value.map((item, index) => (
-                                <Text
-                                    key={index}
-                                    sx={{
-                                        fontSize: 14,
-                                        textDecoration: "underline",
-                                    }}
-                                >
-                                    {item}
-                                </Text>
+                            {item.values.map((item, index) => (
+                                <>
+                                    {item.type === "phone" ? (
+                                        <a
+                                            style={{
+                                                fontSize: 14,
+                                                textDecoration: "underline",
+                                                cursor: "pointer",
+                                                color: "black",
+                                            }}
+                                            href={`tel:${item.value}`}
+                                        >
+                                            {item.value}
+                                        </a>
+                                    ) : (
+                                        <Text
+                                            key={index}
+                                            sx={{
+                                                fontSize: 14,
+                                                textDecoration: "underline",
+                                                cursor: "pointer",
+                                            }}
+                                            onClick={() =>
+                                                (window.location.href =
+                                                    item.value)
+                                            }
+                                        >
+                                            {item.value}
+                                        </Text>
+                                    )}
+                                </>
                             ))}
                         </Box>
                     </Box>

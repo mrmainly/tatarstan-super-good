@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container, TextField, Grid, Button, Box } from "@mui/material";
 import { styled } from "@mui/system";
 
@@ -46,6 +47,12 @@ const GridItem = styled(Grid)(({ theme }) => ({
 }));
 
 const LeaveRequest = () => {
+    const [surname, setSurname] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [patronymic, setPatronymic] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+
     return (
         <Container
             id="request"
@@ -70,16 +77,25 @@ const LeaveRequest = () => {
                     style={{ display: "flex", justifyContent: "center" }}
                 >
                     <GridItem>
-                        <MyTextField label="Фамилия" variant="filled" />
+                        <MyTextField
+                            label="Фамилия"
+                            variant="filled"
+                            value={surname}
+                            onChange={(e) => setSurname(e.target.value)}
+                        />
                         <MyTextField
                             label="Имя"
                             variant="filled"
                             style={{ marginTop: 20 }}
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
                         />
                         <MyTextField
                             label="Отчество (при наличии)"
                             variant="filled"
                             style={{ marginTop: 20 }}
+                            value={patronymic}
+                            onChange={(e) => setPatronymic(e.target.value)}
                         />
                     </GridItem>
                 </Grid>
@@ -96,11 +112,15 @@ const LeaveRequest = () => {
                         <MyTextFieldFirstItem
                             label="Электронная почта"
                             variant="filled"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <MyTextField
                             label="Мобильный телефон"
                             variant="filled"
                             style={{ marginTop: 20 }}
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
                         />
                         <ButtonWrapper>
                             <Button
