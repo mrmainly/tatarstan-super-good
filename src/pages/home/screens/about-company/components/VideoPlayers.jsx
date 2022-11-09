@@ -23,8 +23,8 @@ const VideoPlayers = () => {
             url: "https://youtu.be/wAdZ5NAsC4Y",
             type: "video",
             description:
-                "asdasdasdas asdasdasd asdasdasd asd asd asd asdasdasda asdas asdasdasd asdasd asd asdasd sdadasd",
-            img: "/img/Rectangle44.png",
+                "Интервью с Рамилем Камальдиновым на выставке Urban Forum в онлайн-студии",
+            img: "/img/image212320.png",
         },
         {
             id: 2,
