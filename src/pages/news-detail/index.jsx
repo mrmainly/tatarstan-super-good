@@ -105,7 +105,7 @@ const NewsDetail = () => {
                         marginBottom: 22,
                     }}
                 >
-                    {moment(data.pub_date).locale("ru").format("d MMMM YYYY")}
+                    {moment(data.pub_date, "YYYY-MM-DD").locale("ru").format("DD MMMM YYYY")}
                 </Text>
                 <Slider {...settings}>
                     {data.image.map((item, index) => (
