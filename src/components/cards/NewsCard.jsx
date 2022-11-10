@@ -82,22 +82,14 @@ const NewsCard = ({ prev_image, short_desc, title, pub_date, id, image }) => {
             >
                 {title}
             </Text>
-            <Text sx={{ color: "#3A586E" }}>
-                {" "}
-                {pub_date &&
-                    moment(pub_date).locale("ru").format("d MMMM YYYY")}
-            </Text>
+            <Text sx={{ color: "#3A586E" }}> {pub_date && moment(pub_date, "YYYY-MM-DD").locale("ru").format("DD MMMM YYYY")}</Text>
 
             <BoxNews>
                 <Img src={prev_image} />
                 <LineVertical />
 
                 <Description>
-                    <Text
-                        sx={{ fontSize: 18, fontWeight: 400, color: "#3A586E" }}
-                    >
-                        {short_desc}
-                    </Text>
+                    <Text sx={{ fontSize: 18, fontWeight: 400, color: "#3A586E" }}>{short_desc}</Text>
                 </Description>
             </BoxNews>
         </Card>
