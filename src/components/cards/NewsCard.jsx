@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
+import moment from "moment";
 
 import { Text } from "..";
 
@@ -66,7 +67,7 @@ const Description = styled("div")(({ theme }) => ({
     },
 }));
 
-const NewsCard = ({ prev_image, short_desc, title, date, id, image }) => {
+const NewsCard = ({ prev_image, short_desc, title, pub_date, id, image }) => {
     return (
         <Card>
             <Text
@@ -81,14 +82,22 @@ const NewsCard = ({ prev_image, short_desc, title, date, id, image }) => {
             >
                 {title}
             </Text>
-            <Text sx={{ color: "#3A586E" }}>4 ноября 2022 года</Text>
+            <Text sx={{ color: "#3A586E" }}>
+                {" "}
+                {pub_date &&
+                    moment(pub_date).locale("ru").format("d MMMM YYYY")}
+            </Text>
 
             <BoxNews>
                 <Img src={prev_image} />
                 <LineVertical />
 
                 <Description>
-                    <Text sx={{ fontSize: 18, fontWeight: 400, color: "#3A586E" }}>{short_desc}</Text>
+                    <Text
+                        sx={{ fontSize: 18, fontWeight: 400, color: "#3A586E" }}
+                    >
+                        {short_desc}
+                    </Text>
                 </Description>
             </BoxNews>
         </Card>
