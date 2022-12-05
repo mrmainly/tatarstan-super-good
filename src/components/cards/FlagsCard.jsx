@@ -12,25 +12,26 @@ const Card = styled(Box)({
 });
 
 const Img = styled("img")({
-    width: "100%",
-    height: 300,
-    objectFit: "cover",
+    width: "auto",
+    height: 250,
+    // objectFit: "cover",
 });
 
-const PersonCard = ({ img, full_name, description }) => {
+const FlagsCard = ({ img, region, full_name }) => {
     return (
         <Card>
-            <Img src={img} />
             <Text
                 sx={{
                     fontSize: 18,
                     fontWeight: 500,
                     textAlign: "center",
-                    mt: 1.4,
+                    height: 56,
+                    mb: 2.9,
                 }}
             >
-                {full_name}
+                {region}
             </Text>
+            <Img src={img} />
             <Text
                 sx={{
                     fontSize: 14,
@@ -39,10 +40,10 @@ const PersonCard = ({ img, full_name, description }) => {
                     mt: 1.1,
                 }}
             >
-                {description?.map((item) => <p style={{margin: "2px 0"}}><strong>{item.post}</strong>{item.label}</p>)}
+                {full_name}
             </Text>
         </Card>
     );
 };
 
-export default PersonCard;
+export default FlagsCard;

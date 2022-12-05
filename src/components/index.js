@@ -7,6 +7,7 @@ import Title from "./title";
 import Line from "./line";
 import Footer from "./footer";
 import NewsCard from "./cards/NewsCard";
+import FlagsCard from "./cards/FlagsCard";
 
 export {
     Header,
@@ -18,4 +19,5 @@ export {
     Line,
     Footer,
     NewsCard,
+    FlagsCard,
 };
